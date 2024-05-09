@@ -3,8 +3,12 @@ import * as joi from 'joi';
 
 interface EnvVariables {
   PORT: number;
+
   PRODUCTS_MS_HOST: string;
   PRODUCTS_MS_PORT: number;
+
+  ORDERS_MS_PORT: number;
+  ORDERS_MS_HOST: string;
 }
 
 const envsSchema = joi
@@ -12,6 +16,8 @@ const envsSchema = joi
     PORT: joi.number().required(),
     PRODUCTS_MS_PORT: joi.number().required(),
     PRODUCTS_MS_HOST: joi.string().required(),
+    ORDERS_MS_HOST: joi.string().required(),
+    ORDERS_MS_PORT: joi.number().required(),
   })
   .unknown(true);
 
@@ -27,4 +33,6 @@ export const envs = {
   PORT: enVars.PORT,
   PRODUCTS_MS_PORT: enVars.PRODUCTS_MS_PORT,
   PRODUCTS_MS_HOST: enVars.PRODUCTS_MS_HOST,
+  ORDERS_MS_HOST: enVars.ORDERS_MS_HOST,
+  ORDERS_MS_PORT: enVars.ORDERS_MS_PORT,
 };

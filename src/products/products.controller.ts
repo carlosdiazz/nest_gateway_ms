@@ -1,5 +1,4 @@
 import {
-  BadRequestException,
   Body,
   Controller,
   Delete,
@@ -17,8 +16,7 @@ import { catchError } from 'rxjs';
 //Propio
 import { PaginationDto } from 'src/common';
 import { PRODUCT_SERVICE } from 'src/config';
-import { CreateProductDto } from './dto/create-product.dto';
-import { UpdateProductDto } from './dto/update-product.dto';
+import { CreateProductDto, UpdateProductDto } from './dto';
 
 @Controller('products')
 export class ProductsController {

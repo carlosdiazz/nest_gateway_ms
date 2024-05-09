@@ -6,7 +6,7 @@ import { envs } from './config';
 import { CustomExceptionFilter } from './common';
 
 async function bootstrap() {
-  const logger = new Logger('Main-Gateway');
+  const logger = new Logger('GATEWAY-MAIN');
   const app = await NestFactory.create(AppModule);
   app.setGlobalPrefix('api');
   app.useGlobalPipes(
@@ -18,6 +18,6 @@ async function bootstrap() {
   app.useGlobalFilters(new CustomExceptionFilter());
 
   await app.listen(envs.PORT);
-  logger.debug(`Gateway runing on PORT ${envs.PORT}`);
+  logger.debug(`GATEWAY-MS runing on PORT ${envs.PORT}`);
 }
 bootstrap();
