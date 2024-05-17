@@ -15,13 +15,13 @@ import { catchError } from 'rxjs';
 
 //Propio
 import { PaginationDto } from 'src/common';
-import { PRODUCT_SERVICE } from 'src/config';
+import { NATS_SERVER } from 'src/config';
 import { CreateProductDto, UpdateProductDto } from './dto';
 
 @Controller('products')
 export class ProductsController {
   constructor(
-    @Inject(PRODUCT_SERVICE) private readonly productsClient: ClientProxy,
+    @Inject(NATS_SERVER) private readonly productsClient: ClientProxy,
   ) {}
 
   @Post()

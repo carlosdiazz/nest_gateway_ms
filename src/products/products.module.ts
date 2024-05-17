@@ -1,22 +1,25 @@
 import { Module } from '@nestjs/common';
-import { ClientsModule, Transport } from '@nestjs/microservices';
+//import { ClientsModule, Transport } from '@nestjs/microservices';
 
 //Propio
 import { ProductsController } from './products.controller';
-import { envs, PRODUCT_SERVICE } from './../config';
+import { NatsModule } from 'src/nats/nats.module';
+//import { envs, NATS_SERVER } from './../config';
 
 @Module({
   imports: [
-    ClientsModule.register([
-      {
-        name: PRODUCT_SERVICE,
-        transport: Transport.TCP,
-        options: {
-          host: envs.PRODUCTS_MS_HOST,
-          port: envs.PRODUCTS_MS_PORT,
-        },
-      },
-    ]),
+    //ClientsModule.register([
+    //  {
+    //    name: NATS_SERVER,
+    //    transport: Transport.NATS,
+    //    options: {
+    //      servers: envs.NATS_SERVERS,
+    //      //host: envs.PRODUCTS_MS_HOST,
+    //      //port: envs.PRODUCTS_MS_PORT,
+    //    },
+    //  },
+    //]),
+    NatsModule,
   ],
   controllers: [ProductsController],
 })
