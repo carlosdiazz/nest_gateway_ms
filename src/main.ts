@@ -17,7 +17,7 @@ async function bootstrap() {
   );
   app.useGlobalFilters(new CustomExceptionFilter());
   await app.listen(envs.PORT);
-  console.log("Hola mundo - Primer Cambio!");
+  console.log("Hola mundo - Segundo Cambio!");
   logger.debug(`GATEWAY-MS runing on PORT ${envs.PORT}`);
 }
 bootstrap();
